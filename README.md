@@ -14,5 +14,5 @@ Diese Anwendung ist Teil des **LifeTag-Ökosystems**, das darauf abzielt, die Ü
 
 ## Autoren
 - **Quentin** 
-- **Matthis**
+- **Matthis MARTI**
 - **DBIBIH Oussama**
