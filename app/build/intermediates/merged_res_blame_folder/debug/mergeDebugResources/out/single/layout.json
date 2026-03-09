@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "com.salman.nfcreader.app-mergeDebugResources-20:/layout/activity_main.xml",
+        "source": "com.salman.nfcreader.app-main-23:/layout/activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\matth\\.gradle\\daemon\\8.7\\com.salman.nfcreader.app-mergeDebugResources-20:\\layout\\activity_write_data.xml",
+        "source": "C:\\Users\\matth\\.gradle\\daemon\\8.7\\com.salman.nfcreader.app-main-23:\\layout\\activity_write_data.xml"
+    },
+    {
+        "merged": "C:\\Users\\matth\\.gradle\\daemon\\8.7\\com.salman.nfcreader.app-mergeDebugResources-20:\\layout\\activity_main.xml",
+        "source": "C:\\Users\\matth\\.gradle\\daemon\\8.7\\com.salman.nfcreader.app-main-23:\\layout\\activity_main.xml"
+    }
+]

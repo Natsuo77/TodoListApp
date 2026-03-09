@@ -1,0 +1,102 @@
+[
+    {
+        "merged": "C:\\Users\\matth\\.gradle\\daemon\\8.7\\com.salman.nfcreader.app-debug-21:\\drawable_edit_text_bottom.xml.flat",
+        "source": "C:\\Users\\matth\\.gradle\\daemon\\8.7\\com.salman.nfcreader.app-main-23:\\drawable\\edit_text_bottom.xml"
+    },
+    {
+        "merged": "C:\\Users\\matth\\.gradle\\daemon\\8.7\\com.salman.nfcreader.app-debug-21:\\xml_nfc_tech_filter.xml.flat",
+        "source": "C:\\Users\\matth\\.gradle\\daemon\\8.7\\com.salman.nfcreader.app-main-23:\\xml\\nfc_tech_filter.xml"
+    },
+    {
+        "merged": "C:\\Users\\matth\\.gradle\\daemon\\8.7\\com.salman.nfcreader.app-debug-21:\\mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\matth\\.gradle\\daemon\\8.7\\com.salman.nfcreader.app-main-23:\\mipmap-xhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\matth\\.gradle\\daemon\\8.7\\com.salman.nfcreader.app-debug-21:\\drawable_ic_launcher_background.xml.flat",
+        "source": "C:\\Users\\matth\\.gradle\\daemon\\8.7\\com.salman.nfcreader.app-main-23:\\drawable\\ic_launcher_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\matth\\.gradle\\daemon\\8.7\\com.salman.nfcreader.app-debug-21:\\drawable-v24_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\matth\\.gradle\\daemon\\8.7\\com.salman.nfcreader.app-main-23:\\drawable-v24\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "C:\\Users\\matth\\.gradle\\daemon\\8.7\\com.salman.nfcreader.app-debug-21:\\mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\matth\\.gradle\\daemon\\8.7\\com.salman.nfcreader.app-main-23:\\mipmap-hdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\matth\\.gradle\\daemon\\8.7\\com.salman.nfcreader.app-debug-21:\\mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\matth\\.gradle\\daemon\\8.7\\com.salman.nfcreader.app-main-23:\\mipmap-mdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\matth\\.gradle\\daemon\\8.7\\com.salman.nfcreader.app-debug-21:\\drawable_button.xml.flat",
+        "source": "C:\\Users\\matth\\.gradle\\daemon\\8.7\\com.salman.nfcreader.app-main-23:\\drawable\\button.xml"
+    },
+    {
+        "merged": "C:\\Users\\matth\\.gradle\\daemon\\8.7\\com.salman.nfcreader.app-debug-21:\\drawable_edit_text_top.xml.flat",
+        "source": "C:\\Users\\matth\\.gradle\\daemon\\8.7\\com.salman.nfcreader.app-main-23:\\drawable\\edit_text_top.xml"
+    },
+    {
+        "merged": "C:\\Users\\matth\\.gradle\\daemon\\8.7\\com.salman.nfcreader.app-debug-21:\\drawable_edit_text_middle.xml.flat",
+        "source": "C:\\Users\\matth\\.gradle\\daemon\\8.7\\com.salman.nfcreader.app-main-23:\\drawable\\edit_text_middle.xml"
+    },
+    {
+        "merged": "C:\\Users\\matth\\.gradle\\daemon\\8.7\\com.salman.nfcreader.app-debug-21:\\mipmap-mdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\matth\\.gradle\\daemon\\8.7\\com.salman.nfcreader.app-main-23:\\mipmap-mdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\matth\\.gradle\\daemon\\8.7\\com.salman.nfcreader.app-debug-21:\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\matth\\.gradle\\daemon\\8.7\\com.salman.nfcreader.app-main-23:\\mipmap-xxxhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\matth\\.gradle\\daemon\\8.7\\com.salman.nfcreader.app-debug-21:\\mipmap-hdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\matth\\.gradle\\daemon\\8.7\\com.salman.nfcreader.app-main-23:\\mipmap-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "com.salman.nfcreader.app-debug-21:/layout_activity_main.xml.flat",
+        "source": "com.salman.nfcreader.app-main-23:/layout/activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\matth\\.gradle\\daemon\\8.7\\com.salman.nfcreader.app-debug-21:\\layout_activity_write_data.xml.flat",
+        "source": "C:\\Users\\matth\\.gradle\\daemon\\8.7\\com.salman.nfcreader.app-main-23:\\layout\\activity_write_data.xml"
+    },
+    {
+        "merged": "C:\\Users\\matth\\.gradle\\daemon\\8.7\\com.salman.nfcreader.app-debug-21:\\mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\matth\\.gradle\\daemon\\8.7\\com.salman.nfcreader.app-main-23:\\mipmap-xhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\matth\\.gradle\\daemon\\8.7\\com.salman.nfcreader.app-debug-21:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "C:\\Users\\matth\\.gradle\\daemon\\8.7\\com.salman.nfcreader.app-main-23:\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "C:\\Users\\matth\\.gradle\\daemon\\8.7\\com.salman.nfcreader.app-debug-21:\\drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\matth\\.gradle\\daemon\\8.7\\com.salman.nfcreader.app-pngs-17:\\drawable-anydpi-v24\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "com.salman.nfcreader.app-debug-21:/drawable_ic_logo_safyra.xml.flat",
+        "source": "com.salman.nfcreader.app-main-23:/drawable/ic_logo_safyra.xml"
+    },
+    {
+        "merged": "C:\\Users\\matth\\.gradle\\daemon\\8.7\\com.salman.nfcreader.app-debug-21:\\drawable_bg.xml.flat",
+        "source": "C:\\Users\\matth\\.gradle\\daemon\\8.7\\com.salman.nfcreader.app-main-23:\\drawable\\bg.xml"
+    },
+    {
+        "merged": "C:\\Users\\matth\\.gradle\\daemon\\8.7\\com.salman.nfcreader.app-debug-21:\\mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\matth\\.gradle\\daemon\\8.7\\com.salman.nfcreader.app-main-23:\\mipmap-xxhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\matth\\.gradle\\daemon\\8.7\\com.salman.nfcreader.app-debug-21:\\mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\matth\\.gradle\\daemon\\8.7\\com.salman.nfcreader.app-main-23:\\mipmap-xxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\matth\\.gradle\\daemon\\8.7\\com.salman.nfcreader.app-debug-21:\\mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\matth\\.gradle\\daemon\\8.7\\com.salman.nfcreader.app-main-23:\\mipmap-xxxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\matth\\.gradle\\daemon\\8.7\\com.salman.nfcreader.app-debug-21:\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\matth\\.gradle\\daemon\\8.7\\com.salman.nfcreader.app-main-23:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\matth\\.gradle\\daemon\\8.7\\com.salman.nfcreader.app-debug-21:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\matth\\.gradle\\daemon\\8.7\\com.salman.nfcreader.app-main-23:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+    }
+]

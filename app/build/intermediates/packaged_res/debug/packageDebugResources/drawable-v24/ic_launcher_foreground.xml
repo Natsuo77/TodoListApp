@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Red Cross Background -->
+    <path
+        android:fillColor="#C62828"
+        android:pathData="M34,44 L44,44 L44,34 L64,34 L64,44 L74,44 L74,64 L64,64 L64,74 L44,74 L44,64 L34,64 Z" />
+
+    <!-- Staff of Hermes / Caduceus (Simplified White Line) -->
+    <path
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:pathData="M54,38 L54,70 M50,42 Q54,46 58,42 M50,50 Q54,54 58,50" />
+
+    <!-- NFC Waves (Blue) -->
+    <path
+        android:strokeColor="#1976D2"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:pathData="M78,40 Q88,54 78,68 M84,34 Q98,54 84,74" />
+
+</vector>

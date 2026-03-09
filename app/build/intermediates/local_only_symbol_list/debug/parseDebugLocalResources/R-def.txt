@@ -1,0 +1,31 @@
+R_DEF: Internal format may change without notice
+local
+color colorAccent
+color colorPrimary
+color colorPrimaryDark
+drawable bg
+drawable button
+drawable edit_text_bottom
+drawable edit_text_middle
+drawable edit_text_top
+drawable ic_launcher_background
+drawable ic_launcher_foreground
+drawable ic_logo_safyra
+id btnback
+id btnwrite
+id header_layout
+id input_group
+id txtmachineid
+id txtshopid
+id txtuserid
+id txtviewmachineid
+id txtviewshopid
+id txtviewuserid
+layout activity_main
+layout activity_write_data
+mipmap ic_launcher
+mipmap ic_launcher_round
+string app_name
+style AppTheme
+style MyAlertDialogStyle
+xml nfc_tech_filter

@@ -1,0 +1,163 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.salman.nfcreader"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+9        android:targetSdkVersion="34" />
+10
+11    <uses-permission android:name="android.permission.NFC" />
+11-->C:\Users\matth\Desktop\CESI\Github_appCRI\kotlin-nfc-sample\app\src\main\AndroidManifest.xml:4:5-62
+11-->C:\Users\matth\Desktop\CESI\Github_appCRI\kotlin-nfc-sample\app\src\main\AndroidManifest.xml:4:22-59
+12    <uses-permission android:name="android.permission.VIBRATE" />
+12-->C:\Users\matth\Desktop\CESI\Github_appCRI\kotlin-nfc-sample\app\src\main\AndroidManifest.xml:5:5-66
+12-->C:\Users\matth\Desktop\CESI\Github_appCRI\kotlin-nfc-sample\app\src\main\AndroidManifest.xml:5:22-63
+13
+14    <uses-feature
+14-->C:\Users\matth\Desktop\CESI\Github_appCRI\kotlin-nfc-sample\app\src\main\AndroidManifest.xml:7:5-82
+15        android:name="android.hardware.nfc"
+15-->C:\Users\matth\Desktop\CESI\Github_appCRI\kotlin-nfc-sample\app\src\main\AndroidManifest.xml:7:19-54
+16        android:required="false" />
+16-->C:\Users\matth\Desktop\CESI\Github_appCRI\kotlin-nfc-sample\app\src\main\AndroidManifest.xml:7:55-79
+17
+18    <permission
+18-->[androidx.core:core:1.12.0] C:\Users\matth\.gradle\caches\transforms-4\0059ab11facc95eb3a45a06faf6f9932\transformed\core-1.12.0\AndroidManifest.xml:22:5-24:47
+19        android:name="com.salman.nfcreader.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+19-->[androidx.core:core:1.12.0] C:\Users\matth\.gradle\caches\transforms-4\0059ab11facc95eb3a45a06faf6f9932\transformed\core-1.12.0\AndroidManifest.xml:23:9-81
+20        android:protectionLevel="signature" />
+20-->[androidx.core:core:1.12.0] C:\Users\matth\.gradle\caches\transforms-4\0059ab11facc95eb3a45a06faf6f9932\transformed\core-1.12.0\AndroidManifest.xml:24:9-44
+21
+22    <uses-permission android:name="com.salman.nfcreader.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+22-->[androidx.core:core:1.12.0] C:\Users\matth\.gradle\caches\transforms-4\0059ab11facc95eb3a45a06faf6f9932\transformed\core-1.12.0\AndroidManifest.xml:26:5-97
+22-->[androidx.core:core:1.12.0] C:\Users\matth\.gradle\caches\transforms-4\0059ab11facc95eb3a45a06faf6f9932\transformed\core-1.12.0\AndroidManifest.xml:26:22-94
+23
+24    <application
+24-->C:\Users\matth\Desktop\CESI\Github_appCRI\kotlin-nfc-sample\app\src\main\AndroidManifest.xml:9:5-54:19
+25        android:allowBackup="true"
+25-->C:\Users\matth\Desktop\CESI\Github_appCRI\kotlin-nfc-sample\app\src\main\AndroidManifest.xml:10:9-35
+26        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+26-->[androidx.core:core:1.12.0] C:\Users\matth\.gradle\caches\transforms-4\0059ab11facc95eb3a45a06faf6f9932\transformed\core-1.12.0\AndroidManifest.xml:28:18-86
+27        android:debuggable="true"
+28        android:extractNativeLibs="true"
+29        android:icon="@mipmap/ic_launcher"
+29-->C:\Users\matth\Desktop\CESI\Github_appCRI\kotlin-nfc-sample\app\src\main\AndroidManifest.xml:11:9-43
+30        android:label="@string/app_name"
+30-->C:\Users\matth\Desktop\CESI\Github_appCRI\kotlin-nfc-sample\app\src\main\AndroidManifest.xml:12:9-41
+31        android:roundIcon="@mipmap/ic_launcher_round"
+31-->C:\Users\matth\Desktop\CESI\Github_appCRI\kotlin-nfc-sample\app\src\main\AndroidManifest.xml:13:9-54
+32        android:supportsRtl="true"
+32-->C:\Users\matth\Desktop\CESI\Github_appCRI\kotlin-nfc-sample\app\src\main\AndroidManifest.xml:14:9-35
+33        android:testOnly="true"
+34        android:theme="@style/AppTheme" >
+34-->C:\Users\matth\Desktop\CESI\Github_appCRI\kotlin-nfc-sample\app\src\main\AndroidManifest.xml:15:9-40
+35        <activity
+35-->C:\Users\matth\Desktop\CESI\Github_appCRI\kotlin-nfc-sample\app\src\main\AndroidManifest.xml:17:9-32:20
+36            android:name="com.salman.nfcreader.WriteData"
+36-->C:\Users\matth\Desktop\CESI\Github_appCRI\kotlin-nfc-sample\app\src\main\AndroidManifest.xml:18:13-38
+37            android:exported="true"
+37-->C:\Users\matth\Desktop\CESI\Github_appCRI\kotlin-nfc-sample\app\src\main\AndroidManifest.xml:19:13-36
+38            android:screenOrientation="portrait" >
+38-->C:\Users\matth\Desktop\CESI\Github_appCRI\kotlin-nfc-sample\app\src\main\AndroidManifest.xml:20:13-49
+39            <intent-filter>
+39-->C:\Users\matth\Desktop\CESI\Github_appCRI\kotlin-nfc-sample\app\src\main\AndroidManifest.xml:21:13-27:29
+40                <action android:name="android.nfc.action.NDEF_DISCOVERED" />
+40-->C:\Users\matth\Desktop\CESI\Github_appCRI\kotlin-nfc-sample\app\src\main\AndroidManifest.xml:22:17-77
+40-->C:\Users\matth\Desktop\CESI\Github_appCRI\kotlin-nfc-sample\app\src\main\AndroidManifest.xml:22:25-74
+41
+42                <category android:name="android.intent.category.DEFAULT" />
+42-->C:\Users\matth\Desktop\CESI\Github_appCRI\kotlin-nfc-sample\app\src\main\AndroidManifest.xml:23:17-76
+42-->C:\Users\matth\Desktop\CESI\Github_appCRI\kotlin-nfc-sample\app\src\main\AndroidManifest.xml:23:27-73
+43
+44                <action android:name="android.nfc.action.TAG_DISCOVERED" />
+44-->C:\Users\matth\Desktop\CESI\Github_appCRI\kotlin-nfc-sample\app\src\main\AndroidManifest.xml:24:17-76
+44-->C:\Users\matth\Desktop\CESI\Github_appCRI\kotlin-nfc-sample\app\src\main\AndroidManifest.xml:24:25-73
+45                <action android:name="android.nfc.action.TECH_DISCOVERED" />
+45-->C:\Users\matth\Desktop\CESI\Github_appCRI\kotlin-nfc-sample\app\src\main\AndroidManifest.xml:25:17-77
+45-->C:\Users\matth\Desktop\CESI\Github_appCRI\kotlin-nfc-sample\app\src\main\AndroidManifest.xml:25:25-74
+46
+47                <data android:mimeType="text/plain" />
+47-->C:\Users\matth\Desktop\CESI\Github_appCRI\kotlin-nfc-sample\app\src\main\AndroidManifest.xml:26:17-55
+47-->C:\Users\matth\Desktop\CESI\Github_appCRI\kotlin-nfc-sample\app\src\main\AndroidManifest.xml:26:23-52
+48            </intent-filter>
+49
+50            <meta-data
+50-->C:\Users\matth\Desktop\CESI\Github_appCRI\kotlin-nfc-sample\app\src\main\AndroidManifest.xml:29:13-31:59
+51                android:name="android.nfc.action.TECH_DISCOVERED"
+51-->C:\Users\matth\Desktop\CESI\Github_appCRI\kotlin-nfc-sample\app\src\main\AndroidManifest.xml:30:17-66
+52                android:resource="@xml/nfc_tech_filter" />
+52-->C:\Users\matth\Desktop\CESI\Github_appCRI\kotlin-nfc-sample\app\src\main\AndroidManifest.xml:31:17-56
+53        </activity>
+54        <activity
+54-->C:\Users\matth\Desktop\CESI\Github_appCRI\kotlin-nfc-sample\app\src\main\AndroidManifest.xml:34:9-53:20
+55            android:name="com.salman.nfcreader.MainActivity"
+55-->C:\Users\matth\Desktop\CESI\Github_appCRI\kotlin-nfc-sample\app\src\main\AndroidManifest.xml:35:13-41
+56            android:exported="true"
+56-->C:\Users\matth\Desktop\CESI\Github_appCRI\kotlin-nfc-sample\app\src\main\AndroidManifest.xml:36:13-36
+57            android:screenOrientation="portrait" >
+57-->C:\Users\matth\Desktop\CESI\Github_appCRI\kotlin-nfc-sample\app\src\main\AndroidManifest.xml:37:13-49
+58            <intent-filter>
+58-->C:\Users\matth\Desktop\CESI\Github_appCRI\kotlin-nfc-sample\app\src\main\AndroidManifest.xml:38:13-41:29
+59                <action android:name="android.intent.action.MAIN" />
+59-->C:\Users\matth\Desktop\CESI\Github_appCRI\kotlin-nfc-sample\app\src\main\AndroidManifest.xml:39:17-69
+59-->C:\Users\matth\Desktop\CESI\Github_appCRI\kotlin-nfc-sample\app\src\main\AndroidManifest.xml:39:25-66
+60
+61                <category android:name="android.intent.category.LAUNCHER" />
+61-->C:\Users\matth\Desktop\CESI\Github_appCRI\kotlin-nfc-sample\app\src\main\AndroidManifest.xml:40:17-77
+61-->C:\Users\matth\Desktop\CESI\Github_appCRI\kotlin-nfc-sample\app\src\main\AndroidManifest.xml:40:27-74
+62            </intent-filter>
+63            <intent-filter>
+63-->C:\Users\matth\Desktop\CESI\Github_appCRI\kotlin-nfc-sample\app\src\main\AndroidManifest.xml:21:13-27:29
+64                <action android:name="android.nfc.action.NDEF_DISCOVERED" />
+64-->C:\Users\matth\Desktop\CESI\Github_appCRI\kotlin-nfc-sample\app\src\main\AndroidManifest.xml:22:17-77
+64-->C:\Users\matth\Desktop\CESI\Github_appCRI\kotlin-nfc-sample\app\src\main\AndroidManifest.xml:22:25-74
+65
+66                <category android:name="android.intent.category.DEFAULT" />
+66-->C:\Users\matth\Desktop\CESI\Github_appCRI\kotlin-nfc-sample\app\src\main\AndroidManifest.xml:23:17-76
+66-->C:\Users\matth\Desktop\CESI\Github_appCRI\kotlin-nfc-sample\app\src\main\AndroidManifest.xml:23:27-73
+67
+68                <action android:name="android.nfc.action.TAG_DISCOVERED" />
+68-->C:\Users\matth\Desktop\CESI\Github_appCRI\kotlin-nfc-sample\app\src\main\AndroidManifest.xml:24:17-76
+68-->C:\Users\matth\Desktop\CESI\Github_appCRI\kotlin-nfc-sample\app\src\main\AndroidManifest.xml:24:25-73
+69                <action android:name="android.nfc.action.TECH_DISCOVERED" />
+69-->C:\Users\matth\Desktop\CESI\Github_appCRI\kotlin-nfc-sample\app\src\main\AndroidManifest.xml:25:17-77
+69-->C:\Users\matth\Desktop\CESI\Github_appCRI\kotlin-nfc-sample\app\src\main\AndroidManifest.xml:25:25-74
+70
+71                <data android:mimeType="text/plain" />
+71-->C:\Users\matth\Desktop\CESI\Github_appCRI\kotlin-nfc-sample\app\src\main\AndroidManifest.xml:26:17-55
+71-->C:\Users\matth\Desktop\CESI\Github_appCRI\kotlin-nfc-sample\app\src\main\AndroidManifest.xml:26:23-52
+72            </intent-filter>
+73
+74            <meta-data
+74-->C:\Users\matth\Desktop\CESI\Github_appCRI\kotlin-nfc-sample\app\src\main\AndroidManifest.xml:29:13-31:59
+75                android:name="android.nfc.action.TECH_DISCOVERED"
+75-->C:\Users\matth\Desktop\CESI\Github_appCRI\kotlin-nfc-sample\app\src\main\AndroidManifest.xml:30:17-66
+76                android:resource="@xml/nfc_tech_filter" />
+76-->C:\Users\matth\Desktop\CESI\Github_appCRI\kotlin-nfc-sample\app\src\main\AndroidManifest.xml:31:17-56
+77        </activity>
+78
+79        <provider
+79-->[androidx.emoji2:emoji2:1.2.0] C:\Users\matth\.gradle\caches\transforms-4\b11af377f6bc603b3f63d402a62f9b3f\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
+80            android:name="androidx.startup.InitializationProvider"
+80-->[androidx.emoji2:emoji2:1.2.0] C:\Users\matth\.gradle\caches\transforms-4\b11af377f6bc603b3f63d402a62f9b3f\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:25:13-67
+81            android:authorities="com.salman.nfcreader.androidx-startup"
+81-->[androidx.emoji2:emoji2:1.2.0] C:\Users\matth\.gradle\caches\transforms-4\b11af377f6bc603b3f63d402a62f9b3f\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:26:13-68
+82            android:exported="false" >
+82-->[androidx.emoji2:emoji2:1.2.0] C:\Users\matth\.gradle\caches\transforms-4\b11af377f6bc603b3f63d402a62f9b3f\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:27:13-37
+83            <meta-data
+83-->[androidx.emoji2:emoji2:1.2.0] C:\Users\matth\.gradle\caches\transforms-4\b11af377f6bc603b3f63d402a62f9b3f\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
+84                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+84-->[androidx.emoji2:emoji2:1.2.0] C:\Users\matth\.gradle\caches\transforms-4\b11af377f6bc603b3f63d402a62f9b3f\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:30:17-75
+85                android:value="androidx.startup" />
+85-->[androidx.emoji2:emoji2:1.2.0] C:\Users\matth\.gradle\caches\transforms-4\b11af377f6bc603b3f63d402a62f9b3f\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:31:17-49
+86            <meta-data
+86-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\matth\.gradle\caches\transforms-4\0ffe11014349232838e99f0b65cd0bfc\transformed\jetified-lifecycle-process-2.4.1\AndroidManifest.xml:31:13-33:52
+87                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+87-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\matth\.gradle\caches\transforms-4\0ffe11014349232838e99f0b65cd0bfc\transformed\jetified-lifecycle-process-2.4.1\AndroidManifest.xml:32:17-78
+88                android:value="androidx.startup" />
+88-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\matth\.gradle\caches\transforms-4\0ffe11014349232838e99f0b65cd0bfc\transformed\jetified-lifecycle-process-2.4.1\AndroidManifest.xml:33:17-49
+89        </provider>
+90    </application>
+91
+92</manifest>

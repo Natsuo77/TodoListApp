@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="80dp"
+    android:viewportWidth="200"
+    android:viewportHeight="80">
+
+    <!-- Red Cross -->
+    <path
+        android:fillColor="#C62828"
+        android:pathData="M15,25 L25,25 L25,15 L35,15 L35,25 L45,25 L45,35 L35,35 L35,45 L25,45 L25,35 L15,35 Z" />
+
+    <!-- Staff (Caduceus) -->
+    <path
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="1.5"
+        android:strokeLineCap="round"
+        android:pathData="M30,18 L30,42 M27,21 Q30,24 33,21 M27,27 Q30,30 33,27" />
+
+    <!-- NFC Waves -->
+    <path
+        android:strokeColor="#1E3A5F"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:pathData="M48,20 Q58,30 48,40 M54,15 Q68,30 54,45" />
+
+    <!-- Safyra (Text Simulation) -->
+    <!-- Note: Real text is better in XML layout, but we'll add shapes to mimic the logo's structure if needed -->
+    <!-- For simplicity and quality, we will use a TextView in the layout for the text part -->
+</vector>
