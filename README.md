@@ -1,18 +1,18 @@
-# LifeTag – Android Application
+# LifeTag – Android Applikation
 
-Cette application Android fait partie du projet **LifeTag**, une solution dédiée à l'accès rapide aux informations médicales d'urgence grâce à la technologie **NFC**.
+Diese Android-App ist Teil des Projekts **LifeTag**, einer Lösung, die mithilfe der **NFC-Technologie** den schnellen Zugriff auf medizinische Notfallinformationen ermöglicht.
 
-L'application permet de **scanner un bracelet NFC LifeTag** afin de récupérer automatiquement des informations importantes et de préremplir les champs correspondants dans l'application. Cette fonctionnalité facilite l'accès rapide aux données essentielles dans des situations d'urgence.
+Die Anwendung ermöglicht das **Scannen eines LifeTag NFC-Armbands**, um automatisch wichtige Informationen abzurufen und die entsprechenden Felder in der App vorauszufüllen. Diese Funktion erleichtert den schnellen Zugriff auf lebenswichtige Daten in Notsituationen.
 
-## Fonctionnalités principales
-- 📱 Application Android intuitive
-- 📡 Lecture de **tags NFC LifeTag**
-- 📝 Remplissage automatique des champs d'information
-- ⚡ Accès rapide aux données médicales essentielles
+## Hauptfunktionen
+- 📱 Intuitive Android-App
+- 📡 Auslesen von **LifeTag NFC-Tags**
+- 📝 Automatisches Ausfüllen der Informationsfelder
+- ⚡ Schneller Zugriff auf wichtige medizinische Daten
 
-Cette application s'inscrit dans l'écosystème **LifeTag**, qui vise à améliorer la transmission des informations médicales critiques lors d'interventions d'urgence.
+Diese Anwendung ist Teil des **LifeTag-Ökosystems**, das darauf abzielt, die Übermittlung kritischer medizinischer Informationen bei Notfalleinsätzen zu verbessern.
 
-## Auteurs
-- **Quentin**  
-- **Matthis**  
+## Autoren
+- **Quentin** 
+- **Matthis**
 - **DBIBIH Oussama**
