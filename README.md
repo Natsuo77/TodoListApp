@@ -3,6 +3,6 @@ L'application TodoList est ici améliorer avec une fonction de lecture du NFC, i
 
 
 ## Author 
-Quentin
-Matthis
-DBIBIH Oussama
+* Quentin
+* Matthis
+* DBIBIH Oussama
