@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg">
+
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="16dp"
+        android:gravity="center"
+        android:layout_alignParentTop="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:text="Write NFC Medical Data"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:text="Fill info and scan NFC tag"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"/>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/header"
+        android:layout_above="@id/footer"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <EditText android:id="@+id/etNom" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Nom (25)" android:maxLength="25" android:background="@drawable/edit_text_top" android:padding="12dp" android:layout_marginBottom="8dp" android:inputType="textCapCharacters" />
+            <EditText android:id="@+id/etPrenom" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Prénom (25)" android:maxLength="25" android:background="@drawable/edit_text_top" android:padding="12dp" android:layout_marginBottom="8dp" />
+            <EditText android:id="@+id/etDateNaissance" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Date de naissance (10) JJ/MM/AAAA" android:maxLength="10" android:background="@drawable/edit_text_top" android:padding="12dp" android:layout_marginBottom="8dp" android:inputType="date" />
+            <EditText android:id="@+id/etSexe" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Sexe (2)" android:maxLength="2" android:background="@drawable/edit_text_top" android:padding="12dp" android:layout_marginBottom="8dp" />
+            <EditText android:id="@+id/etAdresse" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Adresse (50)" android:maxLength="50" android:background="@drawable/edit_text_top" android:padding="12dp" android:layout_marginBottom="8dp" />
+            <EditText android:id="@+id/etContactUrgence" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Contact urgence (39)" android:maxLength="39" android:background="@drawable/edit_text_top" android:padding="12dp" android:layout_marginBottom="8dp" />
+            <EditText android:id="@+id/etTaille" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Taille cm (3)" android:maxLength="3" android:background="@drawable/edit_text_top" android:padding="12dp" android:layout_marginBottom="8dp" android:inputType="number" />
+            <EditText android:id="@+id/etPoids" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Poids kg (5)" android:maxLength="5" android:background="@drawable/edit_text_top" android:padding="12dp" android:layout_marginBottom="8dp" android:inputType="numberDecimal" />
+            <EditText android:id="@+id/etGroupeSanguin" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Groupe Sanguin (3)" android:maxLength="3" android:background="@drawable/edit_text_top" android:padding="12dp" android:layout_marginBottom="8dp" />
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Allergies (4x30)" android:textColor="#FFFFFF" />
+            <EditText android:id="@+id/etAllergie1" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Allergie 1" android:maxLength="30" android:background="@drawable/edit_text_top" android:padding="12dp" android:layout_marginBottom="4dp" />
+            <EditText android:id="@+id/etAllergie2" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Allergie 2" android:maxLength="30" android:background="@drawable/edit_text_top" android:padding="12dp" android:layout_marginBottom="4dp" />
+            <EditText android:id="@+id/etAllergie3" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Allergie 3" android:maxLength="30" android:background="@drawable/edit_text_top" android:padding="12dp" android:layout_marginBottom="4dp" />
+            <EditText android:id="@+id/etAllergie4" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Allergie 4" android:maxLength="30" android:background="@drawable/edit_text_top" android:padding="12dp" android:layout_marginBottom="8dp" />
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Maladies chroniques (4x50)" android:textColor="#FFFFFF" />
+            <EditText android:id="@+id/etMaladie1" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Maladie 1" android:maxLength="50" android:background="@drawable/edit_text_top" android:padding="12dp" android:layout_marginBottom="4dp" />
+            <EditText android:id="@+id/etMaladie2" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Maladie 2" android:maxLength="50" android:background="@drawable/edit_text_top" android:padding="12dp" android:layout_marginBottom="4dp" />
+            <EditText android:id="@+id/etMaladie3" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Maladie 3" android:maxLength="50" android:background="@drawable/edit_text_top" android:padding="12dp" android:layout_marginBottom="4dp" />
+            <EditText android:id="@+id/etMaladie4" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Maladie 4" android:maxLength="50" android:background="@drawable/edit_text_top" android:padding="12dp" android:layout_marginBottom="8dp" />
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Traitements (8x30)" android:textColor="#FFFFFF" />
+            <EditText android:id="@+id/etTraitement1" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Traitement 1" android:maxLength="30" android:background="@drawable/edit_text_top" android:padding="12dp" android:layout_marginBottom="4dp" />
+            <EditText android:id="@+id/etTraitement2" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Traitement 2" android:maxLength="30" android:background="@drawable/edit_text_top" android:padding="12dp" android:layout_marginBottom="4dp" />
+            <EditText android:id="@+id/etTraitement3" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Traitement 3" android:maxLength="30" android:background="@drawable/edit_text_top" android:padding="12dp" android:layout_marginBottom="4dp" />
+            <EditText android:id="@+id/etTraitement4" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Traitement 4" android:maxLength="30" android:background="@drawable/edit_text_top" android:padding="12dp" android:layout_marginBottom="4dp" />
+            <EditText android:id="@+id/etTraitement5" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Traitement 5" android:maxLength="30" android:background="@drawable/edit_text_top" android:padding="12dp" android:layout_marginBottom="4dp" />
+            <EditText android:id="@+id/etTraitement6" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Traitement 6" android:maxLength="30" android:background="@drawable/edit_text_top" android:padding="12dp" android:layout_marginBottom="4dp" />
+            <EditText android:id="@+id/etTraitement7" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Traitement 7" android:maxLength="30" android:background="@drawable/edit_text_top" android:padding="12dp" android:layout_marginBottom="4dp" />
+            <EditText android:id="@+id/etTraitement8" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Traitement 8" android:maxLength="30" android:background="@drawable/edit_text_top" android:padding="12dp" android:layout_marginBottom="8dp" />
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Dispositifs médicaux (2x50)" android:textColor="#FFFFFF" />
+            <EditText android:id="@+id/etDispositif1" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Dispositif 1" android:maxLength="50" android:background="@drawable/edit_text_top" android:padding="12dp" android:layout_marginBottom="4dp" />
+            <EditText android:id="@+id/etDispositif2" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Dispositif 2" android:maxLength="50" android:background="@drawable/edit_text_top" android:padding="12dp" android:layout_marginBottom="8dp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/footer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true"
+        android:padding="16dp">
+
+        <Button
+            android:id="@+id/btnback"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button"
+            android:text="Back to Menu"
+            android:textColor="#0099ff"
+            android:textAllCaps="false"/>
+    </LinearLayout>
+
+</RelativeLayout>
