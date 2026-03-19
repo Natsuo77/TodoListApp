@@ -7,6 +7,8 @@ import android.content.IntentFilter
 import android.nfc.NdefMessage
 import android.nfc.NfcAdapter
 import android.nfc.NfcManager
+import android.nfc.Tag
+import android.nfc.tech.*
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -18,7 +20,17 @@ import com.salman.nfcreader.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private var intentFiltersArray: Array<IntentFilter>? = null
-    private val techListsArray = arrayOf(arrayOf(android.nfc.tech.NfcF::class.java.name))
+    
+    private val techListsArray = arrayOf(
+        arrayOf(Ndef::class.java.name),
+        arrayOf(NfcA::class.java.name),
+        arrayOf(NfcB::class.java.name),
+        arrayOf(NfcV::class.java.name),
+        arrayOf(NfcF::class.java.name),
+        arrayOf(IsoDep::class.java.name),
+        arrayOf(MifareClassic::class.java.name),
+        arrayOf(MifareUltralight::class.java.name)
+    )
     
     private val nfcAdapter: NfcAdapter? by lazy {
         val nfcManager = getSystemService(Context.NFC_SERVICE) as NfcManager
@@ -49,19 +61,15 @@ class MainActivity : AppCompatActivity() {
         )
         
         val ndef = IntentFilter(NfcAdapter.ACTION_NDEF_DISCOVERED)
+        val tech = IntentFilter(NfcAdapter.ACTION_TECH_DISCOVERED)
+        val tag = IntentFilter(NfcAdapter.ACTION_TAG_DISCOVERED)
         try {
-            ndef.addDataType("text/plain")
-        } catch (e: IntentFilter.MalformedMimeTypeException) {
-            throw RuntimeException("fail", e)
-        }
-        intentFiltersArray = arrayOf(ndef)
+            ndef.addDataType("*/*")
+        } catch (e: Exception) { }
+        
+        intentFiltersArray = arrayOf(ndef, tech, tag)
         
         checkNfcSupport()
-        
-        // Vérifier si des données arrivent de WriteData
-        intent.getStringExtra("DATA_FROM_WRITE")?.let {
-            displayData(it)
-        }
     }
 
     private fun checkNfcSupport() {
@@ -90,28 +98,52 @@ class MainActivity : AppCompatActivity() {
 
     override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
-        setIntent(intent) // Important pour récupérer l'extra plus tard si besoin
+        setIntent(intent)
 
-        if (NfcAdapter.ACTION_NDEF_DISCOVERED == intent.action || NfcAdapter.ACTION_TECH_DISCOVERED == intent.action) {
+        if (NfcAdapter.ACTION_NDEF_DISCOVERED == intent.action || 
+            NfcAdapter.ACTION_TECH_DISCOVERED == intent.action ||
+            NfcAdapter.ACTION_TAG_DISCOVERED == intent.action) {
+            
             val parcelables = intent.getParcelableArrayExtra(NfcAdapter.EXTRA_NDEF_MESSAGES)
             if (parcelables != null && parcelables.isNotEmpty()) {
                 try {
                     val inNdefMessage = parcelables[0] as NdefMessage
                     val payload = inNdefMessage.records[0].payload
+                    
+                    val textEncoding = if ((payload[0].toInt() and 128) == 0) "UTF-8" else "UTF-16"
+                    val languageCodeLength = payload[0].toInt() and 63
+                    val fullText = String(payload, languageCodeLength + 1, payload.size - languageCodeLength - 1, charset(textEncoding))
+                    
+                    displayData(fullText)
+                    Toast.makeText(this, "Données lues du tag !", Toast.LENGTH_SHORT).show()
+                } catch (ex: Exception) {
+                    Toast.makeText(this, "Erreur de lecture : ${ex.message}", Toast.LENGTH_SHORT).show()
+                }
+            } else {
+                val tag = intent.getParcelableExtra<Tag>(NfcAdapter.EXTRA_TAG)
+                tag?.let { readNdefFromTag(it) }
+            }
+        }
+    }
+
+    private fun readNdefFromTag(tag: Tag) {
+        val ndef = Ndef.get(tag)
+        try {
+            ndef?.let {
+                it.connect()
+                val ndefMessage = it.ndefMessage
+                if (ndefMessage != null && ndefMessage.records.isNotEmpty()) {
+                    val payload = ndefMessage.records[0].payload
                     val textEncoding = if ((payload[0].toInt() and 128) == 0) "UTF-8" else "UTF-16"
                     val languageCodeLength = payload[0].toInt() and 63
                     val fullText = String(payload, languageCodeLength + 1, payload.size - languageCodeLength - 1, charset(textEncoding))
                     displayData(fullText)
                     Toast.makeText(this, "Données lues avec succès !", Toast.LENGTH_SHORT).show()
-                } catch (ex: Exception) {
-                    Toast.makeText(this, "Erreur de lecture : ${ex.message}", Toast.LENGTH_SHORT).show()
                 }
+                it.close()
             }
-        } else {
-            // Si l'activité est relancée avec des données de validation
-            intent.getStringExtra("DATA_FROM_WRITE")?.let {
-                displayData(it)
-            }
+        } catch (e: Exception) {
+            Toast.makeText(this, "Erreur de lecture NDEF", Toast.LENGTH_SHORT).show()
         }
     }
 

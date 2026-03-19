@@ -171,17 +171,6 @@
             android:text="VALIDER"
             android:textColor="#0099ff"
             android:textStyle="bold"
-            android:textAllCaps="true"
-            android:layout_marginBottom="8dp"/>
-
-        <Button
-            android:id="@+id/btnback"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/button"
-            android:text="RETOUR"
-            android:textColor="#0099ff"
-            android:textStyle="bold"
             android:textAllCaps="true"/>
     </LinearLayout>
 
