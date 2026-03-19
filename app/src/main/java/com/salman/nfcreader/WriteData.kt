@@ -12,6 +12,10 @@ import android.nfc.tech.NfcF
 import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
+import android.text.Editable
+import android.text.TextWatcher
+import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -36,6 +40,8 @@ class WriteData : AppCompatActivity() {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
+
+        setupTextWatchers()
         
         //nfc process start
         val flags = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
@@ -73,6 +79,39 @@ class WriteData : AppCompatActivity() {
         }
     }
 
+    private fun setupTextWatchers() {
+        val pairs = listOf(
+            binding.etNom to binding.tvCountNom,
+            binding.etPrenom to binding.tvCountPrenom,
+            binding.etDateNaissance to binding.tvCountDate,
+            binding.etSexe to binding.tvCountSexe,
+            binding.etAdresse to binding.tvCountAdresse,
+            binding.etContactUrgence to binding.tvCountContact,
+            binding.etTaille to binding.tvCountTaille,
+            binding.etPoids to binding.tvCountPoids,
+            binding.etGroupeSanguin to binding.tvCountSang,
+            binding.etAllergie1 to binding.tvCountAllergie1,
+            binding.etAllergie2 to binding.tvCountAllergie2,
+            binding.etMaladie1 to binding.tvCountMaladie1,
+            binding.etTraitement1 to binding.tvCountTraitement1,
+            binding.etDispositif1 to binding.tvCountDispositif1
+        )
+
+        pairs.forEach { (editText, textView) ->
+            val maxLength = editText.filters.filterIsInstance<android.text.InputFilter.LengthFilter>().firstOrNull()?.max ?: 0
+            textView.text = maxLength.toString()
+            
+            editText.addTextChangedListener(object : TextWatcher {
+                override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+                override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                    val remaining = maxLength - (s?.length ?: 0)
+                    textView.text = remaining.toString()
+                }
+                override fun afterTextChanged(s: Editable?) {}
+            })
+        }
+    }
+
     override fun onResume() {
         super.onResume()
         nfcAdapter?.enableForegroundDispatch(this, pendingIntent, intentFiltersArray, techListsArray)
@@ -81,21 +120,15 @@ class WriteData : AppCompatActivity() {
     override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
         try {
-            // Construction de la chaîne CSV avec le séparateur ';'
             val csvData = StringBuilder()
             val fields = listOf(
                 binding.etNom, binding.etPrenom, binding.etDateNaissance, binding.etSexe,
                 binding.etAdresse, binding.etContactUrgence, binding.etTaille, binding.etPoids,
-                binding.etGroupeSanguin,
-                binding.etAllergie1, binding.etAllergie2, binding.etAllergie3, binding.etAllergie4,
-                binding.etMaladie1, binding.etMaladie2, binding.etMaladie3, binding.etMaladie4,
-                binding.etTraitement1, binding.etTraitement2, binding.etTraitement3, binding.etTraitement4,
-                binding.etTraitement5, binding.etTraitement6, binding.etTraitement7, binding.etTraitement8,
-                binding.etDispositif1, binding.etDispositif2
+                binding.etGroupeSanguin, binding.etAllergie1, binding.etAllergie2,
+                binding.etMaladie1, binding.etTraitement1, binding.etDispositif1
             )
 
             fields.forEachIndexed { index, editText ->
-                // Remplacer les ';' saisis pour éviter de corrompre le CSV
                 val text = editText.text.toString().replace(";", " ")
                 csvData.append(text)
                 if (index < fields.size - 1) {
