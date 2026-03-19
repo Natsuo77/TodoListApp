@@ -8,7 +8,9 @@ import android.nfc.NdefRecord
 import android.nfc.NfcAdapter
 import android.nfc.Tag
 import android.nfc.tech.Ndef
+import android.nfc.tech.NfcA
 import android.nfc.tech.NfcF
+import android.nfc.tech.NfcV
 import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
@@ -22,7 +24,15 @@ import com.salman.nfcreader.databinding.ActivityWriteDataBinding
 class WriteData : AppCompatActivity() {
     private lateinit var binding: ActivityWriteDataBinding
     private var intentFiltersArray: Array<IntentFilter>? = null
-    private val techListsArray = arrayOf(arrayOf(NfcF::class.java.name))
+    
+    // Support de plusieurs technologies pour une meilleure compatibilité
+    private val techListsArray = arrayOf(
+        arrayOf(Ndef::class.java.name),
+        arrayOf(NfcA::class.java.name),
+        arrayOf(NfcF::class.java.name),
+        arrayOf(NfcV::class.java.name)
+    )
+    
     private val nfcAdapter: NfcAdapter? by lazy {
         NfcAdapter.getDefaultAdapter(this)
     }
@@ -34,22 +44,16 @@ class WriteData : AppCompatActivity() {
         supportActionBar?.hide()
         setContentView(binding.root)
 
-        binding.btnback.setOnClickListener {
-            finish()
-        }
-
+        // Suppression du bouton retour (btnback) car il a été enlevé du layout
+        
         binding.btnValidate.setOnClickListener {
-            val csvData = getCsvData()
-            val intent = Intent(this, MainActivity::class.java)
-            intent.putExtra("DATA_FROM_WRITE", csvData)
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP)
-            startActivity(intent)
+            // On ferme simplement l'activité pour revenir à l'écran de lecture
             finish()
         }
 
         setupTextWatchers()
         
-        //nfc process start
+        // Initialisation du PendingIntent pour le scan NFC
         val flags = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
             PendingIntent.FLAG_MUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
         } else {
@@ -59,29 +63,28 @@ class WriteData : AppCompatActivity() {
         pendingIntent = PendingIntent.getActivity(
             this, 0, Intent(this, javaClass).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP), flags
         )
+        
+        // Configuration des filtres NFC
         val ndef = IntentFilter(NfcAdapter.ACTION_NDEF_DISCOVERED)
+        val tech = IntentFilter(NfcAdapter.ACTION_TECH_DISCOVERED)
         try {
-            ndef.addDataType("text/plain")
-        } catch (e: IntentFilter.MalformedMimeTypeException) {
-            throw RuntimeException("fail", e)
-        }
-        intentFiltersArray = arrayOf(ndef)
+            ndef.addDataType("*/*")
+        } catch (e: Exception) { }
+        
+        intentFiltersArray = arrayOf(ndef, tech)
+        
         if (nfcAdapter == null) {
-            val builder = AlertDialog.Builder(this@WriteData, R.style.MyAlertDialogStyle)
-            builder.setMessage("This device doesn't support NFC.")
-            builder.setPositiveButton("Cancel", null)
-            val myDialog = builder.create()
-            myDialog.setCanceledOnTouchOutside(false)
-            myDialog.show()
+            val builder = AlertDialog.Builder(this, R.style.MyAlertDialogStyle)
+            builder.setMessage("Cet appareil ne supporte pas le NFC.")
+            builder.setPositiveButton("OK", null)
+            builder.show()
         } else if (!nfcAdapter!!.isEnabled) {
-            val builder = AlertDialog.Builder(this@WriteData, R.style.MyAlertDialogStyle)
-            builder.setTitle("NFC Disabled")
-            builder.setMessage("Please Enable NFC")
-            builder.setPositiveButton("Settings") { _, _ -> startActivity(Intent(Settings.ACTION_NFC_SETTINGS)) }
-            builder.setNegativeButton("Cancel", null)
-            val myDialog = builder.create()
-            myDialog.setCanceledOnTouchOutside(false)
-            myDialog.show()
+            val builder = AlertDialog.Builder(this, R.style.MyAlertDialogStyle)
+            builder.setTitle("NFC Désactivé")
+            builder.setMessage("Veuillez activer le NFC dans les paramètres.")
+            builder.setPositiveButton("Paramètres") { _, _ -> startActivity(Intent(Settings.ACTION_NFC_SETTINGS)) }
+            builder.setNegativeButton("Annuler", null)
+            builder.show()
         }
     }
 
