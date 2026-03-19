@@ -120,32 +120,35 @@
             <!-- Allergies -->
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Allergies (Max 2)" android:textColor="#FFFFFF" android:layout_marginBottom="4dp" android:textSize="12sp" android:textStyle="bold" />
             <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Allergie 1 (30 char)" android:textColor="#FFFFFF" android:textSize="10sp" android:layout_alignParentLeft="true" />
                 <TextView android:id="@+id/tvCountAllergie1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="30" android:textColor="#FFFFFF" android:textSize="10sp" android:layout_alignParentRight="true" />
             </RelativeLayout>
             <EditText android:id="@+id/etAllergie1" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Allergie 1" android:maxLength="30" android:background="@drawable/button" android:padding="12dp" android:layout_marginBottom="4dp" android:textColorHint="#8E8E8E" />
+
             <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Allergie 2 (30 char)" android:textColor="#FFFFFF" android:textSize="10sp" android:layout_alignParentLeft="true" />
                 <TextView android:id="@+id/tvCountAllergie2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="30" android:textColor="#FFFFFF" android:textSize="10sp" android:layout_alignParentRight="true" />
             </RelativeLayout>
             <EditText android:id="@+id/etAllergie2" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Allergie 2" android:maxLength="30" android:background="@drawable/button" android:padding="12dp" android:layout_marginBottom="12dp" android:textColorHint="#8E8E8E" />
 
             <!-- Maladies Chroniques -->
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Maladies Chroniques" android:textColor="#FFFFFF" android:layout_marginBottom="4dp" android:textSize="12sp" android:textStyle="bold" />
             <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content">
-                <TextView android:id="@+id/tvCountMaladie1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="50" android:textColor="#FFFFFF" android:textSize="10sp" android:layout_alignParentRight="true" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Maladies Chroniques (50 char)" android:textColor="#FFFFFF" android:textSize="12sp" android:textStyle="bold" android:layout_alignParentLeft="true" />
+                <TextView android:id="@+id/tvCountMaladie1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="50" android:textColor="#FFFFFF" android:textSize="12sp" android:layout_alignParentRight="true" />
             </RelativeLayout>
             <EditText android:id="@+id/etMaladie1" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Maladie" android:maxLength="50" android:background="@drawable/button" android:padding="12dp" android:layout_marginBottom="12dp" android:textColorHint="#8E8E8E" />
 
-            <!-- Traitement -->
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Traitement" android:textColor="#FFFFFF" android:layout_marginBottom="4dp" android:textSize="12sp" android:textStyle="bold" />
+            <!-- Traitements -->
             <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content">
-                <TextView android:id="@+id/tvCountTraitement1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="30" android:textColor="#FFFFFF" android:textSize="10sp" android:layout_alignParentRight="true" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Traitements (30 char)" android:textColor="#FFFFFF" android:textSize="12sp" android:textStyle="bold" android:layout_alignParentLeft="true" />
+                <TextView android:id="@+id/tvCountTraitement1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="30" android:textColor="#FFFFFF" android:textSize="12sp" android:layout_alignParentRight="true" />
             </RelativeLayout>
-            <EditText android:id="@+id/etTraitement1" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Traitement" android:maxLength="30" android:background="@drawable/button" android:padding="12dp" android:layout_marginBottom="12dp" android:textColorHint="#8E8E8E" />
+            <EditText android:id="@+id/etTraitement1" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Traitements" android:maxLength="30" android:background="@drawable/button" android:padding="12dp" android:layout_marginBottom="12dp" android:textColorHint="#8E8E8E" />
 
             <!-- Dispositif médical -->
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Dispositif médical" android:textColor="#FFFFFF" android:layout_marginBottom="4dp" android:textSize="12sp" android:textStyle="bold" />
             <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content">
-                <TextView android:id="@+id/tvCountDispositif1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="50" android:textColor="#FFFFFF" android:textSize="10sp" android:layout_alignParentRight="true" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Dispositif médical (50 char)" android:textColor="#FFFFFF" android:textSize="12sp" android:textStyle="bold" android:layout_alignParentLeft="true" />
+                <TextView android:id="@+id/tvCountDispositif1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="50" android:textColor="#FFFFFF" android:textSize="12sp" android:layout_alignParentRight="true" />
             </RelativeLayout>
             <EditText android:id="@+id/etDispositif1" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Dispositif médical" android:maxLength="50" android:background="@drawable/button" android:padding="12dp" android:layout_marginBottom="16dp" android:textColorHint="#8E8E8E" />
 
