@@ -14,8 +14,6 @@ import android.os.Bundle
 import android.provider.Settings
 import android.text.Editable
 import android.text.TextWatcher
-import android.widget.EditText
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -37,8 +35,16 @@ class WriteData : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.btnback.setOnClickListener {
+            finish()
+        }
+
+        binding.btnValidate.setOnClickListener {
+            val csvData = getCsvData()
             val intent = Intent(this, MainActivity::class.java)
+            intent.putExtra("DATA_FROM_WRITE", csvData)
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP)
             startActivity(intent)
+            finish()
         }
 
         setupTextWatchers()
@@ -77,6 +83,25 @@ class WriteData : AppCompatActivity() {
             myDialog.setCanceledOnTouchOutside(false)
             myDialog.show()
         }
+    }
+
+    private fun getCsvData(): String {
+        val csvData = StringBuilder()
+        val fields = listOf(
+            binding.etNom, binding.etPrenom, binding.etDateNaissance, binding.etSexe,
+            binding.etAdresse, binding.etContactUrgence, binding.etTaille, binding.etPoids,
+            binding.etGroupeSanguin, binding.etAllergie1, binding.etAllergie2,
+            binding.etMaladie1, binding.etTraitement1, binding.etDispositif1
+        )
+
+        fields.forEachIndexed { index, editText ->
+            val text = editText.text.toString().replace(";", " ")
+            csvData.append(text)
+            if (index < fields.size - 1) {
+                csvData.append(";")
+            }
+        }
+        return csvData.toString()
     }
 
     private fun setupTextWatchers() {
@@ -120,23 +145,7 @@ class WriteData : AppCompatActivity() {
     override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
         try {
-            val csvData = StringBuilder()
-            val fields = listOf(
-                binding.etNom, binding.etPrenom, binding.etDateNaissance, binding.etSexe,
-                binding.etAdresse, binding.etContactUrgence, binding.etTaille, binding.etPoids,
-                binding.etGroupeSanguin, binding.etAllergie1, binding.etAllergie2,
-                binding.etMaladie1, binding.etTraitement1, binding.etDispositif1
-            )
-
-            fields.forEachIndexed { index, editText ->
-                val text = editText.text.toString().replace(";", " ")
-                csvData.append(text)
-                if (index < fields.size - 1) {
-                    csvData.append(";")
-                }
-            }
-
-            val finalData = csvData.toString()
+            val finalData = getCsvData()
 
             if (NfcAdapter.ACTION_TECH_DISCOVERED == intent.action || NfcAdapter.ACTION_NDEF_DISCOVERED == intent.action) {
                 val tag = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {

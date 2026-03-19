@@ -5,127 +5,129 @@
     android:background="@drawable/bg">
 
     <LinearLayout
-        android:id="@+id/header_layout"
+        android:id="@+id/header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_marginTop="20dp"
-        android:layout_marginLeft="25dp"
-        android:layout_marginRight="25dp"
+        android:layout_marginBottom="10dp"
         android:gravity="center"
         android:layout_alignParentTop="true">
 
-        <ImageView
-            android:layout_width="250dp"
-            android:layout_height="100dp"
-            android:src="@drawable/ic_logo_safyra"
-            android:scaleType="fitCenter" />
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-medium"
-            android:text="Safyra Systems"
+            android:fontFamily="sans-serif-black"
+            android:text="Lecture Données Médicales"
             android:textColor="#FFFFFF"
-            android:textSize="24sp"
-            android:layout_marginTop="-20dp"/>
+            android:textSize="22sp"
+            android:textStyle="bold"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif"
-            android:text="Read NFC Data"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp"
-            android:layout_marginTop="10dp"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif"
-            android:text="Bring near the NFC tag to the device!"
+            android:text="Approchez un tag NFC pour lire les informations"
             android:textColor="#FFFFFF"
             android:textSize="14sp"/>
     </LinearLayout>
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/header"
+        android:layout_above="@id/footer"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Nom -->
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Nom" android:textColor="#FFFFFF" android:textSize="12sp" />
+            <EditText android:id="@+id/etNom" android:layout_width="match_parent" android:layout_height="wrap_content" android:maxLength="25" android:background="@drawable/button" android:padding="12dp" android:layout_marginBottom="8dp" android:focusable="false" android:textColor="#000000" />
+
+            <!-- Prénom -->
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Prénom" android:textColor="#FFFFFF" android:textSize="12sp" />
+            <EditText android:id="@+id/etPrenom" android:layout_width="match_parent" android:layout_height="wrap_content" android:maxLength="25" android:background="@drawable/button" android:padding="12dp" android:layout_marginBottom="8dp" android:focusable="false" android:textColor="#000000" />
+
+            <!-- Date Naissance -->
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Date Naissance" android:textColor="#FFFFFF" android:textSize="12sp" />
+            <EditText android:id="@+id/etDateNaissance" android:layout_width="match_parent" android:layout_height="wrap_content" android:maxLength="10" android:background="@drawable/button" android:padding="12dp" android:layout_marginBottom="8dp" android:focusable="false" android:textColor="#000000" />
+
+            <!-- Sexe -->
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Sexe" android:textColor="#FFFFFF" android:textSize="12sp" />
+            <EditText android:id="@+id/etSexe" android:layout_width="match_parent" android:layout_height="wrap_content" android:maxLength="10" android:background="@drawable/button" android:padding="12dp" android:layout_marginBottom="8dp" android:focusable="false" android:textColor="#000000" />
+
+            <!-- Adresse -->
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Adresse" android:textColor="#FFFFFF" android:textSize="12sp" />
+            <EditText android:id="@+id/etAdresse" android:layout_width="match_parent" android:layout_height="wrap_content" android:maxLength="50" android:background="@drawable/button" android:padding="12dp" android:layout_marginBottom="8dp" android:focusable="false" android:textColor="#000000" />
+
+            <!-- Contact Urgence -->
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Contact Urgence" android:textColor="#FFFFFF" android:textSize="12sp" />
+            <EditText android:id="@+id/etContactUrgence" android:layout_width="match_parent" android:layout_height="wrap_content" android:maxLength="39" android:background="@drawable/button" android:padding="12dp" android:layout_marginBottom="8dp" android:focusable="false" android:textColor="#000000" />
+
+            <!-- Taille / Poids / Typage sanguin -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="12dp">
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical" android:layout_marginEnd="8dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Taille" android:textColor="#FFFFFF" android:textSize="10sp" />
+                    <EditText android:id="@+id/etTaille" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/button" android:padding="12dp" android:focusable="false" android:textColor="#000000" />
+                </LinearLayout>
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical" android:layout_marginEnd="8dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Poids" android:textColor="#FFFFFF" android:textSize="10sp" />
+                    <EditText android:id="@+id/etPoids" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/button" android:padding="12dp" android:focusable="false" android:textColor="#000000" />
+                </LinearLayout>
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1.2" android:orientation="vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Typage sanguin" android:textColor="#FFFFFF" android:textSize="10sp" />
+                    <EditText android:id="@+id/etGroupeSanguin" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/button" android:padding="12dp" android:focusable="false" android:textColor="#000000" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Allergies -->
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Allergies" android:textColor="#FFFFFF" android:layout_marginBottom="4dp" android:textSize="12sp" android:textStyle="bold" />
+            <EditText android:id="@+id/etAllergie1" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/button" android:padding="12dp" android:layout_marginBottom="4dp" android:focusable="false" android:textColor="#000000" />
+            <EditText android:id="@+id/etAllergie2" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/button" android:padding="12dp" android:layout_marginBottom="12dp" android:focusable="false" android:textColor="#000000" />
+
+            <!-- Maladies Chroniques -->
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Maladies Chroniques" android:textColor="#FFFFFF" android:textSize="12sp" android:textStyle="bold" />
+            <EditText android:id="@+id/etMaladie1" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/button" android:padding="12dp" android:layout_marginBottom="12dp" android:focusable="false" android:textColor="#000000" />
+
+            <!-- Traitements -->
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Traitements" android:textColor="#FFFFFF" android:textSize="12sp" android:textStyle="bold" />
+            <EditText android:id="@+id/etTraitement1" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/button" android:padding="12dp" android:layout_marginBottom="12dp" android:focusable="false" android:textColor="#000000" />
+
+            <!-- Dispositif médical -->
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Dispositif médical" android:textColor="#FFFFFF" android:textSize="12sp" android:textStyle="bold" />
+            <EditText android:id="@+id/etDispositif1" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/button" android:padding="12dp" android:layout_marginBottom="16dp" android:focusable="false" android:textColor="#000000" />
+
+        </LinearLayout>
+    </ScrollView>
+
     <LinearLayout
-        android:id="@+id/input_group"
+        android:id="@+id/footer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginLeft="25dp"
-        android:layout_marginRight="25dp"
-        android:layout_marginBottom="30dp"
         android:layout_alignParentBottom="true"
-        android:gravity="center">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif"
-            android:textStyle="bold"
-            android:text="Shop ID will be here!"
-            android:textColor="#FFFFFF"
-            android:id="@+id/txtviewshopid"
-            android:textSize="18sp"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif"
-            android:textStyle="bold"
-            android:text="Machine ID will be here!"
-            android:textColor="#FFFFFF"
-            android:id="@+id/txtviewmachineid"
-            android:textSize="18sp"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif"
-            android:textStyle="bold"
-            android:text="User ID will be here"
-            android:textColor="#FFFFFF"
-            android:id="@+id/txtviewuserid"
-            android:textSize="18sp"/>
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/edit_text_top"
-            android:hint="User ID"
-            android:layout_marginBottom="10dp"
-            android:id="@+id/txtuserid"
-            android:inputType="textPersonName"
-            android:padding="15dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif"
-            android:text="All the Readed contents will display above!"
-            android:textColor="#FFFFFF"
-            android:textSize="14sp"/>
+        android:padding="16dp">
 
         <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/button"
-            android:foreground="?android:attr/selectableItemBackground"
-            android:text="Write NFC!"
-            android:textAllCaps="false"
             android:id="@+id/btnwrite"
-            android:textColor="#0099ff"
-            android:textSize="17sp"/>
-
-        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="sans-serif"
-            android:textAlignment="textEnd"
-            android:text="Testing Purposes"
-            android:textColor="#FFFFFF"
-            android:textSize="12sp"/>
+            android:background="@drawable/button"
+            android:text="ALLER À L'ÉCRITURE"
+            android:textColor="#0099ff"
+            android:textStyle="bold"
+            android:textAllCaps="true"
+            android:layout_marginBottom="8dp"/>
     </LinearLayout>
+
 </RelativeLayout>
