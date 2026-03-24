@@ -9,25 +9,40 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_margin="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
         android:gravity="center"
         android:layout_alignParentTop="true">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="sans-serif"
-            android:text="Write NFC Medical Data"
+            android:fontFamily="sans-serif-black"
+            android:text="Écriture Données Médicales"
             android:textColor="#FFFFFF"
-            android:textSize="20sp"/>
+            android:textSize="22sp"
+            android:textStyle="bold"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif"
-            android:text="Fill info and scan NFC tag"
+            android:text="Remplissez les champs et approchez un tag NFC"
             android:textColor="#FFFFFF"
             android:textSize="14sp"/>
+
+        <!-- Notice d'utilisation spécifique à l'écriture -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:text="Notice : Après avoir renseigné les informations, taguez le badge NFC pour l'enregistrer, puis cliquez sur 'Valider'. Retournez à l'accueil pour scanner le tag et vérifier l'affichage."
+            android:textColor="#CCFFFFFF"
+            android:textSize="10sp"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"/>
     </LinearLayout>
 
     <ScrollView
@@ -35,48 +50,136 @@
         android:layout_height="match_parent"
         android:layout_below="@id/header"
         android:layout_above="@id/footer"
-        android:padding="16dp">
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:scrollbars="none">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <EditText android:id="@+id/etNom" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Nom (25)" android:maxLength="25" android:background="@drawable/edit_text_top" android:padding="12dp" android:layout_marginBottom="8dp" android:inputType="textCapCharacters" />
-            <EditText android:id="@+id/etPrenom" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Prénom (25)" android:maxLength="25" android:background="@drawable/edit_text_top" android:padding="12dp" android:layout_marginBottom="8dp" />
-            <EditText android:id="@+id/etDateNaissance" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Date de naissance (10) JJ/MM/AAAA" android:maxLength="10" android:background="@drawable/edit_text_top" android:padding="12dp" android:layout_marginBottom="8dp" android:inputType="date" />
-            <EditText android:id="@+id/etSexe" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Sexe (2)" android:maxLength="2" android:background="@drawable/edit_text_top" android:padding="12dp" android:layout_marginBottom="8dp" />
-            <EditText android:id="@+id/etAdresse" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Adresse (50)" android:maxLength="50" android:background="@drawable/edit_text_top" android:padding="12dp" android:layout_marginBottom="8dp" />
-            <EditText android:id="@+id/etContactUrgence" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Contact urgence (39)" android:maxLength="39" android:background="@drawable/edit_text_top" android:padding="12dp" android:layout_marginBottom="8dp" />
-            <EditText android:id="@+id/etTaille" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Taille cm (3)" android:maxLength="3" android:background="@drawable/edit_text_top" android:padding="12dp" android:layout_marginBottom="8dp" android:inputType="number" />
-            <EditText android:id="@+id/etPoids" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Poids kg (5)" android:maxLength="5" android:background="@drawable/edit_text_top" android:padding="12dp" android:layout_marginBottom="8dp" android:inputType="numberDecimal" />
-            <EditText android:id="@+id/etGroupeSanguin" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Groupe Sanguin (3)" android:maxLength="3" android:background="@drawable/edit_text_top" android:padding="12dp" android:layout_marginBottom="8dp" />
+            <!-- Nom -->
+            <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Nom (25 char)" android:textColor="#FFFFFF" android:textSize="12sp" android:layout_alignParentLeft="true" />
+                <TextView android:id="@+id/tvCountNom" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="25" android:textColor="#FFFFFF" android:textSize="12sp" android:layout_alignParentRight="true" />
+            </RelativeLayout>
+            <EditText android:id="@+id/etNom" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Nom" android:maxLength="25" android:background="@drawable/button" android:padding="12dp" android:layout_marginBottom="8dp" android:inputType="textCapCharacters" android:textColorHint="#8E8E8E" />
 
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Allergies (4x30)" android:textColor="#FFFFFF" />
-            <EditText android:id="@+id/etAllergie1" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Allergie 1" android:maxLength="30" android:background="@drawable/edit_text_top" android:padding="12dp" android:layout_marginBottom="4dp" />
-            <EditText android:id="@+id/etAllergie2" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Allergie 2" android:maxLength="30" android:background="@drawable/edit_text_top" android:padding="12dp" android:layout_marginBottom="4dp" />
-            <EditText android:id="@+id/etAllergie3" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Allergie 3" android:maxLength="30" android:background="@drawable/edit_text_top" android:padding="12dp" android:layout_marginBottom="4dp" />
-            <EditText android:id="@+id/etAllergie4" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Allergie 4" android:maxLength="30" android:background="@drawable/edit_text_top" android:padding="12dp" android:layout_marginBottom="8dp" />
+            <!-- Prénom -->
+            <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Prénom (25 char)" android:textColor="#FFFFFF" android:textSize="12sp" android:layout_alignParentLeft="true" />
+                <TextView android:id="@+id/tvCountPrenom" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="25" android:textColor="#FFFFFF" android:textSize="12sp" android:layout_alignParentRight="true" />
+            </RelativeLayout>
+            <EditText android:id="@+id/etPrenom" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Prénom" android:maxLength="25" android:background="@drawable/button" android:padding="12dp" android:layout_marginBottom="8dp" android:textColorHint="#8E8E8E" />
 
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Maladies chroniques (4x50)" android:textColor="#FFFFFF" />
-            <EditText android:id="@+id/etMaladie1" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Maladie 1" android:maxLength="50" android:background="@drawable/edit_text_top" android:padding="12dp" android:layout_marginBottom="4dp" />
-            <EditText android:id="@+id/etMaladie2" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Maladie 2" android:maxLength="50" android:background="@drawable/edit_text_top" android:padding="12dp" android:layout_marginBottom="4dp" />
-            <EditText android:id="@+id/etMaladie3" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Maladie 3" android:maxLength="50" android:background="@drawable/edit_text_top" android:padding="12dp" android:layout_marginBottom="4dp" />
-            <EditText android:id="@+id/etMaladie4" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Maladie 4" android:maxLength="50" android:background="@drawable/edit_text_top" android:padding="12dp" android:layout_marginBottom="8dp" />
+            <!-- Date Naissance -->
+            <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Date Naissance (JJ/MM/AAAA)" android:textColor="#FFFFFF" android:textSize="12sp" android:layout_alignParentLeft="true" />
+                <TextView android:id="@+id/tvCountDate" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="10" android:textColor="#FFFFFF" android:textSize="12sp" android:layout_alignParentRight="true" />
+            </RelativeLayout>
+            <EditText android:id="@+id/etDateNaissance" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Date Naissance" android:maxLength="10" android:background="@drawable/button" android:padding="12dp" android:layout_marginBottom="8dp" android:inputType="date" android:textColorHint="#8E8E8E" />
 
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Traitements (8x30)" android:textColor="#FFFFFF" />
-            <EditText android:id="@+id/etTraitement1" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Traitement 1" android:maxLength="30" android:background="@drawable/edit_text_top" android:padding="12dp" android:layout_marginBottom="4dp" />
-            <EditText android:id="@+id/etTraitement2" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Traitement 2" android:maxLength="30" android:background="@drawable/edit_text_top" android:padding="12dp" android:layout_marginBottom="4dp" />
-            <EditText android:id="@+id/etTraitement3" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Traitement 3" android:maxLength="30" android:background="@drawable/edit_text_top" android:padding="12dp" android:layout_marginBottom="4dp" />
-            <EditText android:id="@+id/etTraitement4" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Traitement 4" android:maxLength="30" android:background="@drawable/edit_text_top" android:padding="12dp" android:layout_marginBottom="4dp" />
-            <EditText android:id="@+id/etTraitement5" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Traitement 5" android:maxLength="30" android:background="@drawable/edit_text_top" android:padding="12dp" android:layout_marginBottom="4dp" />
-            <EditText android:id="@+id/etTraitement6" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Traitement 6" android:maxLength="30" android:background="@drawable/edit_text_top" android:padding="12dp" android:layout_marginBottom="4dp" />
-            <EditText android:id="@+id/etTraitement7" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Traitement 7" android:maxLength="30" android:background="@drawable/edit_text_top" android:padding="12dp" android:layout_marginBottom="4dp" />
-            <EditText android:id="@+id/etTraitement8" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Traitement 8" android:maxLength="30" android:background="@drawable/edit_text_top" android:padding="12dp" android:layout_marginBottom="8dp" />
+            <!-- Sexe -->
+            <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Sexe (M/F/..)" android:textColor="#FFFFFF" android:textSize="12sp" android:layout_alignParentLeft="true" />
+                <TextView android:id="@+id/tvCountSexe" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="10" android:textColor="#FFFFFF" android:textSize="12sp" android:layout_alignParentRight="true" />
+            </RelativeLayout>
+            <EditText android:id="@+id/etSexe" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Sexe" android:maxLength="10" android:background="@drawable/button" android:padding="12dp" android:layout_marginBottom="8dp" android:textColorHint="#8E8E8E" />
 
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Dispositifs médicaux (2x50)" android:textColor="#FFFFFF" />
-            <EditText android:id="@+id/etDispositif1" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Dispositif 1" android:maxLength="50" android:background="@drawable/edit_text_top" android:padding="12dp" android:layout_marginBottom="4dp" />
-            <EditText android:id="@+id/etDispositif2" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Dispositif 2" android:maxLength="50" android:background="@drawable/edit_text_top" android:padding="12dp" android:layout_marginBottom="8dp" />
+            <!-- Adresse -->
+            <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Adresse (50 char)" android:textColor="#FFFFFF" android:textSize="12sp" android:layout_alignParentLeft="true" />
+                <TextView android:id="@+id/tvCountAdresse" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="50" android:textColor="#FFFFFF" android:textSize="12sp" android:layout_alignParentRight="true" />
+            </RelativeLayout>
+            <EditText android:id="@+id/etAdresse" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Adresse" android:maxLength="50" android:background="@drawable/button" android:padding="12dp" android:layout_marginBottom="8dp" android:textColorHint="#8E8E8E" />
+
+            <!-- Contact Urgence -->
+            <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Contact Urgence (39 char)" android:textColor="#FFFFFF" android:textSize="12sp" android:layout_alignParentLeft="true" />
+                <TextView android:id="@+id/tvCountContact" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="39" android:textColor="#FFFFFF" android:textSize="12sp" android:layout_alignParentRight="true" />
+            </RelativeLayout>
+            <EditText android:id="@+id/etContactUrgence" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Contact Urgence" android:maxLength="39" android:background="@drawable/button" android:padding="12dp" android:layout_marginBottom="8dp" android:textColorHint="#8E8E8E" />
+
+            <!-- Taille / Poids / Typage sanguin -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="12dp">
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical" android:layout_marginEnd="8dp">
+                    <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Taille" android:textColor="#FFFFFF" android:textSize="10sp" />
+                        <TextView android:id="@+id/tvCountTaille" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="3" android:textColor="#FFFFFF" android:textSize="10sp" android:layout_alignParentRight="true" />
+                    </RelativeLayout>
+                    <EditText android:id="@+id/etTaille" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="cm" android:maxLength="3" android:background="@drawable/button" android:padding="12dp" android:inputType="number" android:textColorHint="#8E8E8E" />
+                </LinearLayout>
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical" android:layout_marginEnd="8dp">
+                    <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Poids" android:textColor="#FFFFFF" android:textSize="10sp" />
+                        <TextView android:id="@+id/tvCountPoids" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="5" android:textColor="#FFFFFF" android:textSize="10sp" android:layout_alignParentRight="true" />
+                    </RelativeLayout>
+                    <EditText android:id="@+id/etPoids" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="kg" android:maxLength="5" android:background="@drawable/button" android:padding="12dp" android:inputType="numberDecimal" android:textColorHint="#8E8E8E" />
+                </LinearLayout>
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1.2" android:orientation="vertical">
+                    <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Typage sanguin" android:textColor="#FFFFFF" android:textSize="10sp" />
+                        <TextView android:id="@+id/tvCountSang" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="3" android:textColor="#FFFFFF" android:textSize="10sp" android:layout_alignParentRight="true" />
+                    </RelativeLayout>
+                    <EditText android:id="@+id/etGroupeSanguin" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Sang" android:maxLength="3" android:background="@drawable/button" android:padding="12dp" android:textColorHint="#8E8E8E" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Allergies -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="4dp">
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Allergies" android:textColor="#FFFFFF" android:textSize="12sp" android:textStyle="bold" />
+                <Button android:id="@+id/btnAddAllergie" android:layout_width="30dp" android:layout_height="30dp" android:text="+" android:background="@drawable/button" android:textColor="#0099ff" android:textSize="18sp" android:textStyle="bold" android:padding="0dp" />
+            </LinearLayout>
+            <LinearLayout android:id="@+id/containerAllergies" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" />
+
+            <!-- Maladies Chroniques -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="4dp">
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Maladies Chroniques" android:textColor="#FFFFFF" android:textSize="12sp" android:textStyle="bold" />
+                <Button android:id="@+id/btnAddMaladie" android:layout_width="30dp" android:layout_height="30dp" android:text="+" android:background="@drawable/button" android:textColor="#0099ff" android:textSize="18sp" android:textStyle="bold" android:padding="0dp" />
+            </LinearLayout>
+            <LinearLayout android:id="@+id/containerMaladies" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" />
+
+            <!-- Traitements -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="4dp">
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Traitements" android:textColor="#FFFFFF" android:textSize="12sp" android:textStyle="bold" />
+                <Button android:id="@+id/btnAddTraitement" android:layout_width="30dp" android:layout_height="30dp" android:text="+" android:background="@drawable/button" android:textColor="#0099ff" android:textSize="18sp" android:textStyle="bold" android:padding="0dp" />
+            </LinearLayout>
+            <LinearLayout android:id="@+id/containerTraitements" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" />
+
+            <!-- Dispositif médical -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="4dp">
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Dispositif médical" android:textColor="#FFFFFF" android:textSize="12sp" android:textStyle="bold" />
+                <Button android:id="@+id/btnAddDispositif" android:layout_width="30dp" android:layout_height="30dp" android:text="+" android:background="@drawable/button" android:textColor="#0099ff" android:textSize="18sp" android:textStyle="bold" android:padding="0dp" />
+            </LinearLayout>
+            <LinearLayout android:id="@+id/containerDispositifs" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginBottom="16dp" />
 
         </LinearLayout>
     </ScrollView>
@@ -90,13 +193,14 @@
         android:padding="16dp">
 
         <Button
-            android:id="@+id/btnback"
+            android:id="@+id/btn_validate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/button"
-            android:text="Back to Menu"
+            android:text="VALIDER"
             android:textColor="#0099ff"
-            android:textAllCaps="false"/>
+            android:textStyle="bold"
+            android:textAllCaps="true"/>
     </LinearLayout>
 
 </RelativeLayout>
