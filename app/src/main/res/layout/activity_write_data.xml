@@ -30,6 +30,19 @@
             android:text="Remplissez les champs et approchez un tag NFC"
             android:textColor="#FFFFFF"
             android:textSize="14sp"/>
+
+        <!-- Notice d'utilisation spécifique à l'écriture -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:text="Notice : Après avoir renseigné les informations, taguez le badge NFC pour l'enregistrer, puis cliquez sur 'Valider'. Retournez à l'accueil pour scanner le tag et vérifier l'affichage."
+            android:textColor="#CCFFFFFF"
+            android:textSize="10sp"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"/>
     </LinearLayout>
 
     <ScrollView

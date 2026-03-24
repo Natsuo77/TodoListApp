@@ -13,8 +13,12 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.Settings
+import android.view.ViewGroup
+import android.widget.EditText
+import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.core.content.ContextCompat
 import com.salman.nfcreader.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -115,9 +119,9 @@ class MainActivity : AppCompatActivity() {
                     val fullText = String(payload, languageCodeLength + 1, payload.size - languageCodeLength - 1, charset(textEncoding))
                     
                     displayData(fullText)
-                    Toast.makeText(this, "Données lues du tag !", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Données lues !", Toast.LENGTH_SHORT).show()
                 } catch (ex: Exception) {
-                    Toast.makeText(this, "Erreur de lecture : ${ex.message}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Erreur : ${ex.message}", Toast.LENGTH_SHORT).show()
                 }
             } else {
                 val tag = intent.getParcelableExtra<Tag>(NfcAdapter.EXTRA_TAG)
@@ -138,18 +142,15 @@ class MainActivity : AppCompatActivity() {
                     val languageCodeLength = payload[0].toInt() and 63
                     val fullText = String(payload, languageCodeLength + 1, payload.size - languageCodeLength - 1, charset(textEncoding))
                     displayData(fullText)
-                    Toast.makeText(this, "Données lues avec succès !", Toast.LENGTH_SHORT).show()
                 }
                 it.close()
             }
-        } catch (e: Exception) {
-            Toast.makeText(this, "Erreur de lecture NDEF", Toast.LENGTH_SHORT).show()
-        }
+        } catch (e: Exception) { }
     }
 
     private fun displayData(csvData: String) {
         val parts = csvData.split(";")
-        if (parts.size >= 14) {
+        if (parts.size >= 13) {
             binding.etNom.setText(parts[0])
             binding.etPrenom.setText(parts[1])
             binding.etDateNaissance.setText(parts[2])
@@ -159,13 +160,45 @@ class MainActivity : AppCompatActivity() {
             binding.etTaille.setText(parts[6])
             binding.etPoids.setText(parts[7])
             binding.etGroupeSanguin.setText(parts[8])
-            binding.etAllergie1.setText(parts[9])
-            binding.etAllergie2.setText(parts[10])
-            binding.etMaladie1.setText(parts[11])
-            binding.etTraitement1.setText(parts[12])
-            binding.etDispositif1.setText(parts[13])
+
+            // Remplissage dynamique des listes (Allergies, Maladies, Traitements, Dispositifs)
+            fillDynamicContainer(binding.containerAllergies, parts[9])
+            fillDynamicContainer(binding.containerMaladies, parts[10])
+            fillDynamicContainer(binding.containerTraitements, parts[11])
+            fillDynamicContainer(binding.containerDispositifs, parts[12])
+
+            // SAUVEGARDE POUR L'ECRAN "WRITE NFC"
+            // Cela permet de retrouver ces données quand on change d'écran
+            val sharedPref = getSharedPreferences("NFC_DATA", Context.MODE_PRIVATE)
+            with(sharedPref.edit()) {
+                putString("last_data", csvData)
+                apply()
+            }
         }
     }
+
+    private fun fillDynamicContainer(container: LinearLayout, data: String) {
+        container.removeAllViews()
+        if (data.isEmpty()) return
+        val items = data.split(",")
+        items.forEach { item ->
+            if (item.isNotBlank()) {
+                val editText = EditText(this).apply {
+                    setText(item)
+                    background = ContextCompat.getDrawable(context, R.drawable.button)
+                    setPadding(dpToPx(12), dpToPx(12), dpToPx(12), dpToPx(12))
+                    setTextColor(ContextCompat.getColor(context, android.R.color.black))
+                    isFocusable = false
+                    val params = LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+                    params.setMargins(0, 0, 0, dpToPx(8))
+                    layoutParams = params
+                }
+                container.addView(editText)
+            }
+        }
+    }
+
+    private fun dpToPx(dp: Int): Int = (dp * resources.displayMetrics.density).toInt()
 
     override fun onPause() {
         nfcAdapter?.disableForegroundDispatch(this)

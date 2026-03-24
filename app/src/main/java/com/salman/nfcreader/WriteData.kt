@@ -1,6 +1,7 @@
 package com.salman.nfcreader
 
 import android.app.PendingIntent
+import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.nfc.NdefMessage
@@ -53,13 +54,18 @@ class WriteData : AppCompatActivity() {
         supportActionBar?.hide()
         setContentView(binding.root)
 
-        binding.btnValidate.setOnClickListener { finish() }
+        binding.btnValidate.setOnClickListener { 
+            saveData()
+            finish() 
+        }
 
-        // Ajout des premiers champs par défaut
-        addField(binding.containerAllergies, "Allergie", 30, dynamicFieldsAllergies)
-        addField(binding.containerMaladies, "Maladie", 50, dynamicFieldsMaladies)
-        addField(binding.containerTraitements, "Traitement", 30, dynamicFieldsTraitements)
-        addField(binding.containerDispositifs, "Dispositif", 50, dynamicFieldsDispositifs)
+        // Charger les données sauvegardées ou ajouter les champs par défaut
+        if (!loadData()) {
+            addField(binding.containerAllergies, "Allergie", 30, dynamicFieldsAllergies)
+            addField(binding.containerMaladies, "Maladie", 50, dynamicFieldsMaladies)
+            addField(binding.containerTraitements, "Traitement", 30, dynamicFieldsTraitements)
+            addField(binding.containerDispositifs, "Dispositif", 50, dynamicFieldsDispositifs)
+        }
 
         // Configuration des boutons +
         binding.btnAddAllergie.setOnClickListener { addField(binding.containerAllergies, "Allergie", 30, dynamicFieldsAllergies) }
@@ -222,25 +228,75 @@ class WriteData : AppCompatActivity() {
         nfcAdapter?.enableForegroundDispatch(this, pendingIntent, intentFiltersArray, techListsArray)
     }
 
+    private fun getCsvData(): String {
+        val csvData = StringBuilder()
+        // Collecte des champs fixes
+        val fixedFields = listOf(binding.etNom, binding.etPrenom, binding.etDateNaissance, binding.etSexe, binding.etAdresse, binding.etContactUrgence, binding.etTaille, binding.etPoids, binding.etGroupeSanguin)
+        fixedFields.forEach { csvData.append(it.text.toString().replace(";", " ")).append(";") }
+        
+        // Collecte des champs dynamiques (Allergies, Maladies, Traitements, Dispositifs)
+        fun getListContent(list: List<EditText>): String {
+            return list.map { it.text.toString().replace(";", " ") }.filter { it.isNotBlank() }.joinToString(",")
+        }
+        csvData.append(getListContent(dynamicFieldsAllergies)).append(";")
+        csvData.append(getListContent(dynamicFieldsMaladies)).append(";")
+        csvData.append(getListContent(dynamicFieldsTraitements)).append(";")
+        csvData.append(getListContent(dynamicFieldsDispositifs))
+
+        return csvData.toString()
+    }
+
+    private fun saveData() {
+        val data = getCsvData()
+        val sharedPref = getSharedPreferences("NFC_DATA", Context.MODE_PRIVATE)
+        with(sharedPref.edit()) {
+            putString("last_data", data)
+            apply()
+        }
+    }
+
+    private fun loadData(): Boolean {
+        val sharedPref = getSharedPreferences("NFC_DATA", Context.MODE_PRIVATE)
+        val savedData = sharedPref.getString("last_data", null) ?: return false
+        val parts = savedData.split(";")
+        if (parts.size < 13) return false
+        
+        binding.etNom.setText(parts[0])
+        binding.etPrenom.setText(parts[1])
+        binding.etDateNaissance.setText(parts[2])
+        binding.etSexe.setText(parts[3])
+        binding.etAdresse.setText(parts[4])
+        binding.etContactUrgence.setText(parts[5])
+        binding.etTaille.setText(parts[6])
+        binding.etPoids.setText(parts[7])
+        binding.etGroupeSanguin.setText(parts[8])
+
+        fillDynamicFields(binding.containerAllergies, parts[9], "Allergie", 30, dynamicFieldsAllergies)
+        fillDynamicFields(binding.containerMaladies, parts[10], "Maladie", 50, dynamicFieldsMaladies)
+        fillDynamicFields(binding.containerTraitements, parts[11], "Traitement", 30, dynamicFieldsTraitements)
+        fillDynamicFields(binding.containerDispositifs, parts[12], "Dispositif", 50, dynamicFieldsDispositifs)
+        return true
+    }
+
+    private fun fillDynamicFields(container: LinearLayout, data: String, hintPrefix: String, maxLength: Int, list: MutableList<EditText>) {
+        container.removeAllViews()
+        list.clear()
+        val items = data.split(",").filter { it.isNotBlank() }
+        if (items.isEmpty()) {
+            addField(container, hintPrefix, maxLength, list)
+        } else {
+            items.forEach { item ->
+                addField(container, hintPrefix, maxLength, list)
+                list.last().setText(item)
+            }
+        }
+    }
+
     override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
         try {
-            val csvData = StringBuilder()
-            // Collecte des champs fixes
-            val fixedFields = listOf(binding.etNom, binding.etPrenom, binding.etDateNaissance, binding.etSexe, binding.etAdresse, binding.etContactUrgence, binding.etTaille, binding.etPoids, binding.etGroupeSanguin)
-            fixedFields.forEach { csvData.append(it.text.toString().replace(";", " ")).append(";") }
-            
-            // Collecte des champs dynamiques (Allergies, Maladies, Traitements, Dispositifs)
-            fun appendList(list: List<EditText>) {
-                val content = list.map { it.text.toString().replace(";", " ") }.filter { it.isNotBlank() }.joinToString(",")
-                csvData.append(content).append(";")
-            }
-            appendList(dynamicFieldsAllergies)
-            appendList(dynamicFieldsMaladies)
-            appendList(dynamicFieldsTraitements)
-            appendList(dynamicFieldsDispositifs)
-
-            val finalData = csvData.toString().removeSuffix(";")
+            val finalData = getCsvData()
+            saveData() // Sauvegarder aussi lors de l'écriture NFC
 
             if (NfcAdapter.ACTION_TECH_DISCOVERED == intent.action || NfcAdapter.ACTION_NDEF_DISCOVERED == intent.action) {
                 val tag = intent.getParcelableExtra<Tag>(NfcAdapter.EXTRA_TAG) ?: return
@@ -258,6 +314,7 @@ class WriteData : AppCompatActivity() {
     }
 
     override fun onPause() {
+        saveData() // Sauvegarder quand on quitte l'activité
         nfcAdapter?.disableForegroundDispatch(this)
         super.onPause()
     }

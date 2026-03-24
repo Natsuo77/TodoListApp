@@ -30,6 +30,19 @@
             android:text="Approchez un tag NFC pour lire les informations"
             android:textColor="#FFFFFF"
             android:textSize="14sp"/>
+
+        <!-- Petite Notice d'utilisation -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:text="Notice : Maintenez le badge au dos de l'appareil jusqu'à la vibration. Les données lues sont automatiquement sauvegardées pour être modifiées dans l'onglet 'Écriture'."
+            android:textColor="#CCFFFFFF"
+            android:textSize="10sp"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"/>
     </LinearLayout>
 
     <ScrollView
@@ -92,20 +105,19 @@
 
             <!-- Allergies -->
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Allergies" android:textColor="#FFFFFF" android:layout_marginBottom="4dp" android:textSize="12sp" android:textStyle="bold" />
-            <EditText android:id="@+id/etAllergie1" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/button" android:padding="12dp" android:layout_marginBottom="4dp" android:focusable="false" android:textColor="#000000" />
-            <EditText android:id="@+id/etAllergie2" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/button" android:padding="12dp" android:layout_marginBottom="12dp" android:focusable="false" android:textColor="#000000" />
+            <LinearLayout android:id="@+id/containerAllergies" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" />
 
             <!-- Maladies Chroniques -->
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Maladies Chroniques" android:textColor="#FFFFFF" android:textSize="12sp" android:textStyle="bold" />
-            <EditText android:id="@+id/etMaladie1" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/button" android:padding="12dp" android:layout_marginBottom="12dp" android:focusable="false" android:textColor="#000000" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Maladies Chroniques" android:textColor="#FFFFFF" android:textSize="12sp" android:textStyle="bold" android:layout_marginTop="8dp" />
+            <LinearLayout android:id="@+id/containerMaladies" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" />
 
             <!-- Traitements -->
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Traitements" android:textColor="#FFFFFF" android:textSize="12sp" android:textStyle="bold" />
-            <EditText android:id="@+id/etTraitement1" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/button" android:padding="12dp" android:layout_marginBottom="12dp" android:focusable="false" android:textColor="#000000" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Traitements" android:textColor="#FFFFFF" android:textSize="12sp" android:textStyle="bold" android:layout_marginTop="8dp" />
+            <LinearLayout android:id="@+id/containerTraitements" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" />
 
             <!-- Dispositif médical -->
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Dispositif médical" android:textColor="#FFFFFF" android:textSize="12sp" android:textStyle="bold" />
-            <EditText android:id="@+id/etDispositif1" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/button" android:padding="12dp" android:layout_marginBottom="16dp" android:focusable="false" android:textColor="#000000" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Dispositif médical" android:textColor="#FFFFFF" android:textSize="12sp" android:textStyle="bold" android:layout_marginTop="8dp" />
+            <LinearLayout android:id="@+id/containerDispositifs" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginBottom="16dp" />
 
         </LinearLayout>
     </ScrollView>
